@@ -20,7 +20,6 @@ const onLogin = () => {
 const getProfile = () => {
   axios.get(`http://127.0.0.1:3000/auth/profile`, {
     withCredentials: true,
-    credentials: 'include'
   }).then((res) => {
     console.log(res)
   })
