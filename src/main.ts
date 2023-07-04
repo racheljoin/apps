@@ -4,6 +4,7 @@ import ElementPlus from "element-plus";
 import { createPinia, setActivePinia } from "pinia";
 import router from "./router";
 import "element-plus/dist/index.css";
+import "./assets/main.css";
 import App from "./App.vue";
 
 export type TMicroRouter = {

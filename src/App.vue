@@ -10,7 +10,7 @@ const isLoginPage = location.pathname === "/login";
 
 <template>
   <Home v-if="!isLoginPage" :microRouter="props.microRouter" />
-  <RouterView :microRouter="props.microRouter" />
+  <!-- <RouterView :microRouter="props.microRouter" /> -->
 </template>
 
 <style scoped></style>

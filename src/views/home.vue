@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import type { TMicroRouter } from "../main";
-const isCollapse = ref(true);
-const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath);
-};
-const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath);
-};
 
 const props = defineProps<{
   microRouter: TMicroRouter[];
@@ -17,7 +9,7 @@ const props = defineProps<{
 <template>
   <el-row class="tac">
     <el-col :span="6">
-      <el-menu default-active="2" class="el-menu-vertical-demo">
+      <el-menu default-active="2" class="el-menu-vertical">
         <el-menu-item v-for="a in props.microRouter">
           <el-link :href="'/' + a.activeRule">{{ a.name }}</el-link>
         </el-menu-item>
@@ -28,7 +20,8 @@ const props = defineProps<{
 </template>
 
 <style scoped>
-.tac {
+.tac,
+.el-menu-vertical {
   height: 100%;
 }
 </style>
