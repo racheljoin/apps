@@ -23,17 +23,19 @@ const router = createRouter({
   ],
 });
 router.beforeEach(async (from, to) => {
-  const store = userStore();
-  let isAuthenticated = !!store.token;
-  if (!isAuthenticated) {
-    const res = await getToken();
-    if (res.response.status === 200) {
-      store.token = res.response.data;
-      isAuthenticated = true;
+  if (from.name !== "Login") {
+    const store = userStore();
+    let isAuthenticated = !!store.token;
+    if (!isAuthenticated) {
+      const res = await getToken();
+      if (res?.data) {
+        store.token = res.data;
+        isAuthenticated = true;
+      }
     }
-  }
-  if (from.name !== "Login" && !isAuthenticated) {
-    return { name: "Login", path: "/login" };
+    if (!isAuthenticated) {
+      return { name: "Login", path: "/login" };
+    }
   }
 });
 export default router;

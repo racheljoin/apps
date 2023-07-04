@@ -10,7 +10,8 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true
+    "incremental": true,
+    "types": ["element-plus/global"]
   },
   "exclude": ["node_modules", "dist"]
 }

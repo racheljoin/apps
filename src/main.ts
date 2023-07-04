@@ -1,13 +1,10 @@
 import { registerMicroApps, start } from "qiankun";
-import { createRouter, createWebHistory } from "vue-router";
-import { createApp, type ComponentPublicInstance } from "vue";
+import { createApp } from "vue";
 import ElementPlus from "element-plus";
 import { createPinia, setActivePinia } from "pinia";
 import router from "./router";
 import "element-plus/dist/index.css";
-import "./assets/main.css";
 import App from "./App.vue";
-// const store = userStore();
 
 export type TMicroRouter = {
   name: string;
@@ -36,5 +33,5 @@ app.use(ElementPlus);
 app.mount("#app");
 registerMicroApps(microRouter, {});
 // 启动 qiankun
-start();
+start({ sandbox: { strictStyleIsolation: true } });
 

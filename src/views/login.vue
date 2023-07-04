@@ -15,8 +15,8 @@ const onLogin = () => {
     email: form.email,
     verityCode: form.verityCode,
   }).then((res) => {
-    if (res.status === 200) {
-      store.$patch({ token: res.data });
+    if (res.data) {
+      store.token = res.data;
       router.push("/");
     }
   });
@@ -48,10 +48,8 @@ const handleVerityCode = () => {
     </el-form-item>
     <el-form-item>
       <el-button type="primary" @click="onLogin">登录</el-button>
-      <el-button>Cancel</el-button>
     </el-form-item>
   </el-form>
-  <el-button @click="handleProfile">个人信息</el-button>
 </template>
 
 <style scoped></style>
