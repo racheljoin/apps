@@ -15,7 +15,7 @@ const props = defineProps<{
         </el-menu-item>
       </el-menu>
     </el-col>
-    <el-col :span="18"> <div id="container"></div></el-col>
+    <el-col :span="18"><div id="container"></div></el-col>
   </el-row>
 </template>
 
